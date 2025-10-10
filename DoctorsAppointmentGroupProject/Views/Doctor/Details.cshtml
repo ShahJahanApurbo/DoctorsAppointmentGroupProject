@@ -1,0 +1,78 @@
+@model DoctorsAppointmentGroupProject.Models.Doctor
+
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>Doctor Details</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <h4>@Model.FirstName @Model.LastName</h4>
+                <span class="badge @(Model.Status == DoctorsAppointmentGroupProject.Models.DoctorStatus.Active ? "bg-success" : 
+                                   Model.Status == DoctorsAppointmentGroupProject.Models.DoctorStatus.Inactive ? "bg-secondary" : "bg-danger")">
+                    @Model.Status
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.FirstName):</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.FirstName)</dd>
+                            
+                            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LastName):</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.LastName)</dd>
+                            
+                            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Specialization):</dt>
+                            <dd class="col-sm-8">@Html.DisplayFor(model => model.Specialization)</dd>
+                            
+                            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Email):</dt>
+                            <dd class="col-sm-8">
+                                <a href="mailto:@Model.Email">@Html.DisplayFor(model => model.Email)</a>
+                            </dd>
+                            
+                            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Phone):</dt>
+                            <dd class="col-sm-8">
+                                <a href="tel:@Model.Phone">@Html.DisplayFor(model => model.Phone)</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-5">@Html.DisplayNameFor(model => model.LicenseNumber):</dt>
+                            <dd class="col-sm-7">@Html.DisplayFor(model => model.LicenseNumber)</dd>
+                            
+                            <dt class="col-sm-5">@Html.DisplayNameFor(model => model.ConsultationFee):</dt>
+                            <dd class="col-sm-7">@Model.ConsultationFee.ToString("C")</dd>
+                        </dl>
+                    </div>
+                </div>
+                
+                @if (!string.IsNullOrEmpty(Model.EducationalInfo))
+                {
+                    <hr />
+                    <div class="mb-3">
+                        <h5>@Html.DisplayNameFor(model => model.EducationalInfo)</h5>
+                        <p class="text-muted">@Html.DisplayFor(model => model.EducationalInfo)</p>
+                    </div>
+                }
+                
+                @if (!string.IsNullOrEmpty(Model.CareerInfo))
+                {
+                    <div class="mb-3">
+                        <h5>@Html.DisplayNameFor(model => model.CareerInfo)</h5>
+                        <p class="text-muted">@Html.DisplayFor(model => model.CareerInfo)</p>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <a asp-action="Edit" asp-route-id="@Model.DoctorID" class="btn btn-warning">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

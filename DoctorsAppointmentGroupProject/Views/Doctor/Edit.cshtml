@@ -71,7 +71,7 @@
 
             <div class="form-group mb-3">
                 <label asp-for="Status" class="form-label"></label>
-                <select asp-for="Status" asp-items="Html.GetEnumSelectList<DoctorsAppointmentGroupProject.Models.DoctorStatus>()" class="form-select"></select>
+                <select asp-for="Status" asp-items="Html.GetEnumSelectList<DoctorsAppointmentGroupProject.Enums.DoctorStatus>()" class="form-select"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
 

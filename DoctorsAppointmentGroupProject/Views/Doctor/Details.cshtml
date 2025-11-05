@@ -11,8 +11,8 @@
         <div class="card">
             <div class="card-header">
                 <h4>@Model.FirstName @Model.LastName</h4>
-                <span class="badge @(Model.Status == DoctorsAppointmentGroupProject.Models.DoctorStatus.Active ? "bg-success" : 
-                                   Model.Status == DoctorsAppointmentGroupProject.Models.DoctorStatus.Inactive ? "bg-secondary" : "bg-danger")">
+                <span class="badge @(Model.Status == DoctorsAppointmentGroupProject.Enums.DoctorStatus.Active ? "bg-success" : 
+                                   Model.Status == DoctorsAppointmentGroupProject.Enums.DoctorStatus.Inactive ? "bg-secondary" : "bg-danger")">
                     @Model.Status
                 </span>
             </div>

@@ -33,8 +33,8 @@
                     <td>@Html.DisplayFor(modelItem => item.Email)</td>
                     <td>@Html.DisplayFor(modelItem => item.Phone)</td>
                     <td>
-                        <span class="badge @(item.Status == DoctorsAppointmentGroupProject.Models.DoctorStatus.Active ? "bg-success" : 
-                                           item.Status == DoctorsAppointmentGroupProject.Models.DoctorStatus.Inactive ? "bg-secondary" : "bg-danger")">
+                        <span class="badge @(item.Status == DoctorsAppointmentGroupProject.Enums.DoctorStatus.Active ? "bg-success" : 
+                                           item.Status == DoctorsAppointmentGroupProject.Enums.DoctorStatus.Inactive ? "bg-secondary" : "bg-danger")">
                             @Html.DisplayFor(modelItem => item.Status)
                         </span>
                     </td>
